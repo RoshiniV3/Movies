@@ -19,7 +19,7 @@
                         
            
                         
-          <div  >
+          <div>
             <div *ngFor="let genre of genres | enumToArray" class="card-header">
                         
 							<h5
@@ -55,35 +55,45 @@
             <hr>
             <div *ngIf="!visibleMovies" class= "scroll-container">
               <section>
-                <h2>Latest</h2>
+                <h2>All Movies</h2>
                 <div class="cards-wrapper">
                   <div *ngFor="let movie of movies | filter: searchText | sort: sortBy" class="card">
-                    <figure>
-                      <img src="assets/movies/{{movie.img}}" alt="movie poster">
-                    </figure>
+                    <div>
+                      <figure>
+                        <img src="assets/movies/{{movie.img}}" alt="movie poster">
+                      </figure>
+                    </div>
+                   
             
                   </div>
                 </div>
 
                 <h2>Popular</h2>
                 <div class="cards-wrapper">
-                  <div *ngFor="let movie of movies | filter: searchText | sort: sortBy" class="card">
-                    <figure>
-                      <img src="assets/movies/{{movie.img}}" alt="movie poster">
-                    </figure>
+                  <div *ngFor="let movie of movies | filter: searchText | sort: sortBy ">
+                    <div class="card" *ngIf="movie.rate>7.0">
+                      <figure>
+                        <img src="assets/movies/{{movie.img}}" alt="movie poster">
+                      </figure>
+                    </div>
+                   
             
                   </div>
                 </div>
 
                 <h2>Trending</h2>
                 <div class="cards-wrapper">
-                  <div *ngFor="let movie of movies | filter: searchText | sort: sortBy" class="card">
-                    <figure>
-                      <img src="assets/movies/{{movie.img}}" alt="movie poster">
-                    </figure>
+                  <div *ngFor="let movie of movies | filter: searchText | sort: sortBy ">
+                    <div class="card" *ngIf="movie.id>15">
+                      <figure>
+                        <img src="assets/movies/{{movie.img}}" alt="movie poster">
+                      </figure>
+                    </div>
+                   
             
                   </div>
                 </div>
+
 
                 <h2>Recommended</h2>
                 <div class="cards-wrapper">
