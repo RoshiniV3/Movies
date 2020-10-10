@@ -25,6 +25,17 @@
       <p class="desc">
         {{movie.description}}
       </p>
+
+      <div class="movierating">
+       <a *ngIf="!ratingon"(click)="ratingon=true">Rate movie</a> 
+
+     <span *ngIf="ratingon"> <ngb-rating [max]="5" [(rate)]="currentRate" [readonly]="false"></ngb-rating></span> 
+      </div>
+        
+   
+  
+
+      
     </div>
   </div>
   </div>  <!---row---->

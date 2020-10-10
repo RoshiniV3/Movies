@@ -13,7 +13,7 @@ import { Movie } from '../../classes/movie';
 export class MovieDetailComponent implements OnInit {
   movie: Movie = null;
   error: string = null;
-
+  ratingon=false;
   constructor(
     private httpClientMovieService: HttpClientMovieService,
     private activatedRoute: ActivatedRoute) {}

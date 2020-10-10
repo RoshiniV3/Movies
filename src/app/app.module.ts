@@ -20,6 +20,7 @@ import { FilterMoviesService } from './dashboard/services/filter-movies.service'
 import { EnumToArrayPipe } from './dashboard/components/list-movies/enumToArray.pipe';
 import { FilterPipe } from './dashboard/components/list-movies/filter.pipe';
 import { SortPipe } from './dashboard/components/list-movies/sort.pipe';
+import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,7 @@ import { SortPipe } from './dashboard/components/list-movies/sort.pipe';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-
+    NgbRatingModule,
     environment.production ?
     [] : InMemoryWebApiModule.forRoot(MovieInMemDataService)
   ],

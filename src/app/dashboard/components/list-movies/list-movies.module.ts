@@ -13,6 +13,7 @@ import { HttpClientMovieService } from '../../services/http-client-movie.service
 import { FilterMoviesService } from '../../services/filter-movies.service';
 import { RouterModule } from '@angular/router';
 import { MovieDetailComponent } from '../movie-detail/movie-detail.component';
+import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
   
 
 
@@ -24,6 +25,7 @@ import { MovieDetailComponent } from '../movie-detail/movie-detail.component';
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
+        NgbRatingModule,
         RouterModule.forChild([
             { path: '', component: ListMoviesComponent },
             { path: 'movies', component: ListMoviesComponent },

@@ -19,7 +19,7 @@ import { FilterPipe } from './components/list-movies/filter.pipe';
 import { SortPipe } from './components/list-movies/sort.pipe';
 import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
 import { CommonModule } from '@angular/common';
-
+import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -32,6 +32,7 @@ import { CommonModule } from '@angular/common';
         FormsModule,
         ReactiveFormsModule,
     DashboardRoutingModule,
+    NgbRatingModule,
     environment.production ?
     [] : InMemoryWebApiModule.forRoot(MovieInMemDataService)
   ],
