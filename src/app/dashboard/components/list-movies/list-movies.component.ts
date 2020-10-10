@@ -14,7 +14,7 @@ import { filter } from 'rxjs/operators';
   styleUrls: ['./list-movies.component.scss']
 })
 export class ListMoviesComponent implements OnInit {
-
+  showgenre=false;
   movies: Movie[] = null;
   visibleMovies: Movie[] = null;
 
@@ -66,6 +66,12 @@ export class ListMoviesComponent implements OnInit {
     if (!results) { return null; }
     if (!results[2]) { return ''; }
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
+  }
+  private changegenre(){
+    this.showgenre=!this.showgenre;
+    if(this.showgenre==false){
+      this.visibleMovies=undefined;
+    }
   }
 
 }

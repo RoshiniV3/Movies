@@ -13,12 +13,14 @@
                 <input [(ngModel)]="searchText" name="searchText" type="search" placeholder="Search" aria-label="Search">
               </div>
         <div class="row">
-				  <div class="col-md-3">
+				  <div class="col-md-3" >
                    
-					<div class="card-movies">
-                        <h2><strong>Genres</strong></h2>
-					 
-					  <div *ngFor="let genre of genres | enumToArray" class="card-header">
+					<div class="card-movies" *ngIf="showgenre">
+                        
+           
+                        
+          <div  >
+            <div *ngFor="let genre of genres | enumToArray" class="card-header">
                         
 							<h5
 							[ngClass]="{'active': genre.toLowerCase() == selectedGenre}"
@@ -29,6 +31,8 @@
 						  </h5>
 					  </div>
 
+          </div>
+			
 
 					</div>
 				  </div>
@@ -39,9 +43,7 @@
             <!----modules-->
 			    <div class="col-md-8">
             <div class="movies-list-header">
-              <span class="count">
-                {{movies.length}} Movies
-              </span>
+              <h2  (click)="changegenre()"><strong>Select Genre</strong></h2>
               <div class="sort">
                 SORT BY:
                 <select [(ngModel)]="sortBy">
@@ -51,9 +53,39 @@
               </div>
             </div>
             <hr>
-            <div class= "scroll-container">
+            <div *ngIf="!visibleMovies" class= "scroll-container">
               <section>
                 <h2>Latest</h2>
+                <div class="cards-wrapper">
+                  <div *ngFor="let movie of movies | filter: searchText | sort: sortBy" class="card">
+                    <figure>
+                      <img src="assets/movies/{{movie.img}}" alt="movie poster">
+                    </figure>
+            
+                  </div>
+                </div>
+
+                <h2>Popular</h2>
+                <div class="cards-wrapper">
+                  <div *ngFor="let movie of movies | filter: searchText | sort: sortBy" class="card">
+                    <figure>
+                      <img src="assets/movies/{{movie.img}}" alt="movie poster">
+                    </figure>
+            
+                  </div>
+                </div>
+
+                <h2>Trending</h2>
+                <div class="cards-wrapper">
+                  <div *ngFor="let movie of movies | filter: searchText | sort: sortBy" class="card">
+                    <figure>
+                      <img src="assets/movies/{{movie.img}}" alt="movie poster">
+                    </figure>
+            
+                  </div>
+                </div>
+
+                <h2>Recommended</h2>
                 <div class="cards-wrapper">
                   <div *ngFor="let movie of movies | filter: searchText | sort: sortBy" class="card">
                     <figure>
