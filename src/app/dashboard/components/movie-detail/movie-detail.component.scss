@@ -124,6 +124,7 @@ $secondary-title: $yellow;
 
     .movie-cover{
       padding: 0 1em;
+      transform: translateY(-44em);
     }
     .short-info{
       flex-direction: column;
@@ -142,6 +143,25 @@ $secondary-title: $yellow;
     .desc{
       max-width: 100%;
     }
+    .area-comentarios{
+         .normal .conteudo {
+      max-width:60%
+    }
+    }    
+ 
+  }
+
+  .ngb-rating {
+    font-size: 6vw;
+  }
+
+  .movie-detail h2{
+    color: #ffffff;
+    margin-top: 29vw;
+    padding-bottom: 2vw;
+    -webkit-box-align: center;
+    align-items: center;
+    padding-left: 10em;
   }
 }
 
@@ -153,15 +173,17 @@ $secondary-title: $yellow;
     border-radius: 5vw;
     width: 19em;
     height: 3em;
+    width: 100%;
     border: 0;
     background-color: #212529;
-    color:white;
+    color: white;
   }
   
   .post-color{
     color: white;
     float: right;
     padding-right: 2vw;
+    padding-bottom:1vw;
   }
   
   .area-comentarios ul{
@@ -255,6 +277,7 @@ $secondary-title: $yellow;
     color: #D81B60;
     text-decoration: none;
     cursor: pointer;
+    max-width:60%
   }
 
   .normal .conteudo p{

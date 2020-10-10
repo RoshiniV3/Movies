@@ -28,7 +28,6 @@
 
       <div class="movierating">
        <a *ngIf="!ratingon"(click)="ratingon=true">Rate movie</a> 
-
      <span *ngIf="ratingon"> <ngb-rating [max]="5" [(rate)]="currentRate" [readonly]="false"></ngb-rating></span> 
       </div>
   <br>      
@@ -48,7 +47,7 @@
               <div class="comment-info">
               <b><a href="" rel="nofollow" target="_blank">arianimartins</a></b> <span class="post-color"> POST</span></div>
               <div class="comment-text">
-              <input [(ngModel)]="commentText" name="commentText" type="text" placeholder="Add a comment" aria-label="Comment">
+              <input [(ngModel)]="commentText" name="commentText" type="text" placeholder="Comment" aria-label="Comment">
             </div>
             </div>
           </li>
