@@ -264,8 +264,8 @@ $secondary-title: $yellow;
     .title,
     .rate{
       img{
-        width:1vw;
-        height:1vw;
+        width:1em;
+        height:1em;
 
       }
       display: block;
@@ -285,6 +285,18 @@ $secondary-title: $yellow;
 @media only screen and (max-width : 48em) {
   .movies-container .movies-list-header{
   padding-right:0em;
+
+ 
+}
+
+.movies-list-header{
+  select{
+    margin-left:6em;
+  }
+
+  h2 strong{
+    width:max-content;
+  }
 }
     .card-movies{
         margin-left: 3vw;
@@ -367,8 +379,8 @@ $secondary-title: $yellow;
       .title,
       .rate{
         img{
-          width:1vw;
-          height:1vw;
+          width:1em;
+          height:1em;
 
         }
         display: block;
