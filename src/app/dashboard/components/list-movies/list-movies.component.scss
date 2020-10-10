@@ -259,7 +259,7 @@ $secondary-title: $yellow;
     }
 
     .title{
-      color: $primary-title;
+      color: black;
     }
     .rate{
       color: $primary-color-light;
@@ -316,4 +316,56 @@ $secondary-title: $yellow;
       }
     }
   }
+}
+
+
+
+
+.scroll-container{
+  -webkit-scrollbar { 
+    display: none; 
+} 
+ 
+  .cards-wrapper ::-webkit-scrollbar { 
+    display: none; 
+} 
+  .cards-wrapper {
+    grid-column: center-start / -1;
+    overflow: auto;
+    
+    display: flex;
+    padding-bottom: 1em;
+
+   
+    
+    .card {
+      background-color: #272e2e;
+      color: #15928A;
+      height: 20em;
+      min-width: 13em;
+      margin-right: 1em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+      p {
+        font-size: 1.5em;
+      }
+      
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    
+    &::after {
+      content: "";
+      display: block;
+      min-width: var(--page-margin);
+    }
+  }
+  
+}
+
+::-webkit-scrollbar {
+  display: none;
 }

@@ -1,3 +1,5 @@
+ 
+
 
   
 
@@ -31,12 +33,27 @@
 					</div>
 				  </div>
 
-
+           
           
 
             <!----modules-->
 			    <div class="col-md-8">
-                    <div *ngIf="visibleMovies" class="movies-container" [@simpleFadeAnimation]="'in'">
+
+            <div class= "scroll-container">
+              <section>
+                <h2>Latest</h2>
+                <div class="cards-wrapper">
+                  <div *ngFor="let movie of movies | filter: searchText | sort: sortBy" class="card">
+                    <figure>
+                      <img src="assets/movies/{{movie.img}}" alt="movie poster">
+                    </figure>
+            
+                  </div>
+                </div>
+              </section>
+           </div>
+
+                    <div *ngIf="visibleMovies" class="movies-container">
                         <div class="movies-list-header">
                           <span class="count">
                             {{visibleMovies.length}} Movies
@@ -66,13 +83,14 @@
               <!----modules-->
 
 
-           
 
-
+       
+          
 
 
         </div>
       </div>
     </div>
+    
   </div>
 
