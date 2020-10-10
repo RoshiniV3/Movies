@@ -1,0 +1,78 @@
+
+  
+
+
+  <div class="wrapper overflow_class">
+    <div class="main-panel">
+      <div class="content">
+        
+            <div class="search-bar">
+              
+                <input [(ngModel)]="searchText" name="searchText" type="search" placeholder="Search" aria-label="Search">
+              </div>
+        <div class="row">
+				  <div class="col-md-3">
+                   
+					<div class="card-movies">
+                        <h2><strong>Genres</strong></h2>
+					 
+					  <div *ngFor="let genre of genres | enumToArray" class="card-header">
+                        
+							<h5
+							[ngClass]="{'active': genre.toLowerCase() == selectedGenre}"
+							[routerLink]="['/movies/']"
+							[queryParams]="{filter:genre.toLowerCase()}"
+							(click)="changeFilter($event)">
+							{{genre}}
+						  </h5>
+					  </div>
+
+
+					</div>
+				  </div>
+
+
+          
+
+            <!----modules-->
+			    <div class="col-md-8">
+                    <div *ngIf="visibleMovies" class="movies-container" [@simpleFadeAnimation]="'in'">
+                        <div class="movies-list-header">
+                          <span class="count">
+                            {{visibleMovies.length}} Movies
+                          </span>
+                          <div class="sort">
+                            SORT BY:
+                            <select [(ngModel)]="sortBy">
+                              <option value="rate">Rate</option>
+                              <option value="id">Latest</option>
+                            </select>
+                          </div>
+                        </div>
+                        <hr>
+                        <div class="movies-list">
+                          <div *ngFor="let movie of visibleMovies | filter: searchText | sort: sortBy" class="movie">
+                            <a [routerLink]="['/movies/' + movie.id + '/' + movie.key]">
+                              <figure>
+                                <img src="assets/movies/{{movie.img}}" alt="movie poster">
+                              </figure>
+                              <span class="title">{{movie.name}}</span>
+                              <span class="rate">{{movie.rate}}</span>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+               </div>
+              <!----modules-->
+
+
+           
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+

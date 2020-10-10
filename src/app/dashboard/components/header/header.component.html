@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand-lg fixed-top">
+    <a class="navbar-brand" href="#">Movies DB</a>
+    <button class="navbar-toggler" type="button" (click)="toggleSidebar()">
+        <!-- <span class="navbar-toggler-icon"></span> -->
+        <i class="fa fa-bars text-muted" aria-hidden="true"></i>
+    </button>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown" ngbDropdown>
+                <a  href="javascript:void(0)" ngbDropdownToggle>
+                    <i class="fa fa-envelope"></i> <b class="caret"></b><span class="sr-only">(current)</span>
+                </a>
+                <ul class="dropdown-menu-right messages" ngbDropdownMenu  *ngIf="authService.userData as user">
+                    <li class="media">
+                        <img class="image_chat"
+                        src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}" alt="Generic placeholder image"
+                        >
+                        <div class="media-body">
+                            <h5 class="mt-0 mb-1">{{user.displayName}}</h5>
+                            <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                            <p class="last">Python exam is scheduled next week</p>
+                        </div>
+                    </li>
+                    <li class="media">
+                        <img class="image_chat"
+                        src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"
+                            alt="Generic placeholder image"
+                        >
+                        <div class="media-body">
+                            <h5 class="mt-0 mb-1">{{user.displayName}}</h5>
+                            <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                            <p class="last">Scheduled an exam next week</p>
+                        </div>
+                    </li>
+                    <li class="media">
+                        <img class="image_chat"
+                         src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"
+                            alt="Generic placeholder image"
+                        />
+                        <div class="media-body">
+                            <h5 class="mt-0 mb-1">{{user.displayName}}</h5>
+                            <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                            <p class="last"> Review delayed scheduled next week</p>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
