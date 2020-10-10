@@ -38,7 +38,19 @@
 
             <!----modules-->
 			    <div class="col-md-8">
-
+            <div class="movies-list-header">
+              <span class="count">
+                {{movies.length}} Movies
+              </span>
+              <div class="sort">
+                SORT BY:
+                <select [(ngModel)]="sortBy">
+                  <option value="rate">Rate</option>
+                  <option value="id">Latest</option>
+                </select>
+              </div>
+            </div>
+            <hr>
             <div class= "scroll-container">
               <section>
                 <h2>Latest</h2>
@@ -54,19 +66,6 @@
            </div>
 
                     <div *ngIf="visibleMovies" class="movies-container">
-                        <div class="movies-list-header">
-                          <span class="count">
-                            {{visibleMovies.length}} Movies
-                          </span>
-                          <div class="sort">
-                            SORT BY:
-                            <select [(ngModel)]="sortBy">
-                              <option value="rate">Rate</option>
-                              <option value="id">Latest</option>
-                            </select>
-                          </div>
-                        </div>
-                        <hr>
                         <div class="movies-list">
                           <div *ngFor="let movie of visibleMovies | filter: searchText | sort: sortBy" class="movie">
                             <a [routerLink]="['/movies/' + movie.id + '/' + movie.key]">
