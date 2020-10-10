@@ -59,12 +59,17 @@
                 <hr>
                 <div class="cards-wrapper">
                   <div *ngFor="let movie of movies | filter: searchText | sort: sortBy ">
-                    <div [routerLink]="[movie.id + '/' + movie.key]" class="card">
-                      <figure>
+                    <div class="card">
+                      <figure >
                         <img src="assets/movies/{{movie.img}}" alt="movie poster">
                       </figure>
-                      <span class="title">{{movie.name}}</span>
-                              <div class="rate" >
+                      <div class="title" >
+                                
+                        <div [routerLink]="[movie.id + '/' + movie.key]" > {{movie.name}}<img src="assets/icons/icon.png" alt="movie poster"></div>
+
+              
+                      </div>
+                              <div  class="rate" >
                                 
                                 <a><img src="assets/icons/star.svg" alt="movie poster">{{movie.rate}}</a>
 
@@ -79,11 +84,16 @@
                 <hr>
                 <div class="cards-wrapper">
                   <div *ngFor="let movie of movies | filter: searchText | sort: sortBy ">
-                    <div [routerLink]="[movie.id + '/' + movie.key]" class="card" *ngIf="movie.rate>7.0">
+                    <div  class="card" *ngIf="movie.rate>7.0">
                       <figure>
                         <img src="assets/movies/{{movie.img}}" alt="movie poster">
                       </figure>
-                      <span class="title">{{movie.name}}</span>
+                      <div class="title" >
+                                
+                        <div [routerLink]="[movie.id + '/' + movie.key]" > {{movie.name}}<img src="assets/icons/icon.png" alt="movie poster"></div>
+
+              
+                      </div>
                       <div class="rate" >
                         
                         <a><img src="assets/icons/star.svg" alt="movie poster">{{movie.rate}}</a>
@@ -100,12 +110,17 @@
                 <hr>
                 <div class="cards-wrapper">
                   <div *ngFor="let movie of movies | filter: searchText | sort: sortBy ">
-                    <div [routerLink]="[movie.id + '/' + movie.key]" class="card" *ngIf="movie.id>15">
+                    <div  class="card" *ngIf="movie.id>15">
                       <figure>
                         <img src="assets/movies/{{movie.img}}" alt="movie poster">
                       </figure>
-                      <span class="title">{{movie.name}}</span>
-                      <div class="rate" >
+                      <div class="title" >
+                                
+                        <div [routerLink]="[movie.id + '/' + movie.key]" > {{movie.name}}<img src="assets/icons/icon.png" alt="movie poster"></div>
+
+              
+                      </div>
+                      <div  class="rate" >
                         
                         <a><img src="assets/icons/star.svg" alt="movie poster">{{movie.rate}}</a>
 
@@ -121,11 +136,16 @@
                 <h2>Recommended</h2>
                 <hr>
                 <div class="cards-wrapper">
-                  <div [routerLink]="[movie.id + '/' + movie.key]" *ngFor="let movie of movies | filter: searchText | sort: sortBy" class="card">
+                  <div *ngFor="let movie of movies | filter: searchText | sort: sortBy" class="card">
                     <figure>
                       <img src="assets/movies/{{movie.img}}" alt="movie poster">
                     </figure>
-                    <span class="title">{{movie.name}}</span>
+                    <div class="title" >
+                                
+                      <div [routerLink]="[movie.id + '/' + movie.key]" > {{movie.name}}<img src="assets/icons/icon.png" alt="movie poster"></div>
+
+            
+                    </div>
                     <div class="rate" >
                       
                       <a><img src="assets/icons/star.svg" alt="movie poster">{{movie.rate}}</a>
@@ -139,12 +159,17 @@
 
                     <div *ngIf="visibleMovies" class="movies-container">
                         <div class="movies-list">
-                          <div *ngFor="let movie of visibleMovies | filter: searchText | sort: sortBy" class="movie">
-                            <a [routerLink]="[movie.id + '/' + movie.key]">
+                          <div *ngFor="let movie of visibleMovies | filter: searchText | sort: sortBy"  [routerLink]="[movie.id + '/' + movie.key]"  class="movie">
+                            <a >
                               <figure>
                                 <img src="assets/movies/{{movie.img}}" alt="movie poster">
                               </figure>
-                              <span class="title">{{movie.name}}</span>
+                              <div class="rate" >
+                                
+                                <a> {{movie.name}}<img src="assets/icons/icon.png" alt="movie poster"></a>
+        
+                      
+                              </div>
                               <div class="rate" >
                                 
                                 <a><img src="assets/icons/star.svg" alt="movie poster">{{movie.rate}}</a>

@@ -51,7 +51,7 @@ $secondary-title: $yellow;
   flex-direction: row;
   justify-content: flex-start;
   padding: 0 2em;
-  transform: translateY(-4em);
+  transform: translateY(-9em);
 }
 
 .movie-detail{
@@ -59,8 +59,11 @@ $secondary-title: $yellow;
   color: darken($light, 35);
 
   h2{
-    color: $primary-title;
+    color: #ffffff;
     margin-top: 0;
+    padding-bottom: 2vw;
+    align-items: center;
+    padding-left: 8em
   }
 
   .short-info{
@@ -68,7 +71,7 @@ $secondary-title: $yellow;
     justify-content: flex-start;
     flex-direction: row;
     text-transform: capitalize;
-
+    padding-bottom: 2vw;
     div {
       margin-right: 1em;
     }
@@ -106,7 +109,7 @@ $secondary-title: $yellow;
     }
     .short-info{
       flex-direction: column;
-
+     
       div {
         margin-right: 0;
         margin-bottom: 1em;

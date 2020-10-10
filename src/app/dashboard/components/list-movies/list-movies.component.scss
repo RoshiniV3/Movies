@@ -277,6 +277,7 @@ $secondary-title: $yellow;
     }
     .rate{
       color: black;
+      padding-bottom: 1.2em;
     }
   }
 }
@@ -362,7 +363,7 @@ $secondary-title: $yellow;
       display: flex;
       align-items: center;
       justify-content: center;
-
+   
       .title,
       .rate{
         img{
@@ -379,6 +380,7 @@ $secondary-title: $yellow;
       }
       .rate{
         color: white;
+        padding-bottom: 1.2em;
       }
       
       
