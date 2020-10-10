@@ -11,6 +11,7 @@
             <div class="search-bar">
               
                 <input [(ngModel)]="searchText" name="searchText" type="search" placeholder="Search" aria-label="Search">
+                
               </div>
         <div class="row">
 				  <div class="col-md-3" >
@@ -53,28 +54,42 @@
           
             <div *ngIf="!visibleMovies" class= "scroll-container">
               <section>
+
                 <h2>All Movies</h2>
                 <hr>
                 <div class="cards-wrapper">
-                  <div *ngFor="let movie of movies | filter: searchText | sort: sortBy" class="card">
-                    <div>
+                  <div *ngFor="let movie of movies | filter: searchText | sort: sortBy ">
+                    <div [routerLink]="[movie.id + '/' + movie.key]" class="card">
                       <figure>
                         <img src="assets/movies/{{movie.img}}" alt="movie poster">
                       </figure>
+                      <span class="title">{{movie.name}}</span>
+                              <div class="rate" >
+                                
+                                <a><img src="assets/icons/star.svg" alt="movie poster">{{movie.rate}}</a>
+
+                      
+                              </div>
                     </div>
                    
             
                   </div>
                 </div>
-
                 <h2>Popular</h2>
                 <hr>
                 <div class="cards-wrapper">
                   <div *ngFor="let movie of movies | filter: searchText | sort: sortBy ">
-                    <div class="card" *ngIf="movie.rate>7.0">
+                    <div [routerLink]="[movie.id + '/' + movie.key]" class="card" *ngIf="movie.rate>7.0">
                       <figure>
                         <img src="assets/movies/{{movie.img}}" alt="movie poster">
                       </figure>
+                      <span class="title">{{movie.name}}</span>
+                      <div class="rate" >
+                        
+                        <a><img src="assets/icons/star.svg" alt="movie poster">{{movie.rate}}</a>
+
+              
+                      </div>
                     </div>
                    
             
@@ -85,10 +100,17 @@
                 <hr>
                 <div class="cards-wrapper">
                   <div *ngFor="let movie of movies | filter: searchText | sort: sortBy ">
-                    <div class="card" *ngIf="movie.id>15">
+                    <div [routerLink]="[movie.id + '/' + movie.key]" class="card" *ngIf="movie.id>15">
                       <figure>
                         <img src="assets/movies/{{movie.img}}" alt="movie poster">
                       </figure>
+                      <span class="title">{{movie.name}}</span>
+                      <div class="rate" >
+                        
+                        <a><img src="assets/icons/star.svg" alt="movie poster">{{movie.rate}}</a>
+
+              
+                      </div>
                     </div>
                    
             
@@ -99,11 +121,17 @@
                 <h2>Recommended</h2>
                 <hr>
                 <div class="cards-wrapper">
-                  <div *ngFor="let movie of movies | filter: searchText | sort: sortBy" class="card">
+                  <div [routerLink]="[movie.id + '/' + movie.key]" *ngFor="let movie of movies | filter: searchText | sort: sortBy" class="card">
                     <figure>
                       <img src="assets/movies/{{movie.img}}" alt="movie poster">
                     </figure>
+                    <span class="title">{{movie.name}}</span>
+                    <div class="rate" >
+                      
+                      <a><img src="assets/icons/star.svg" alt="movie poster">{{movie.rate}}</a>
+
             
+                    </div>
                   </div>
                 </div>
               </section>
@@ -117,7 +145,12 @@
                                 <img src="assets/movies/{{movie.img}}" alt="movie poster">
                               </figure>
                               <span class="title">{{movie.name}}</span>
-                              <span class="rate">{{movie.rate}}</span>
+                              <div class="rate" >
+                                
+                                <a><img src="assets/icons/star.svg" alt="movie poster">{{movie.rate}}</a>
+
+                      
+                              </div>
                             </a>
                           </div>
                         </div>
