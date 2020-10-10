@@ -14,6 +14,7 @@ export class MovieDetailComponent implements OnInit {
   movie: Movie = null;
   error: string = null;
   ratingon=false;
+  commenton=false;
   constructor(
     private httpClientMovieService: HttpClientMovieService,
     private activatedRoute: ActivatedRoute) {}

@@ -31,10 +31,31 @@
 
      <span *ngIf="ratingon"> <ngb-rating [max]="5" [(rate)]="currentRate" [readonly]="false"></ngb-rating></span> 
       </div>
-        
-   
+  <br>      
+      <div class="movierating">
+        <a *ngIf="!commenton"(click)="commenton=true">Add comment</a> 
+ 
+       </div>
   
-
+      <div class="area-comentarios" *ngIf="commenton">
+        <ul>
+          <li class="unico-comentario normal">
+            <div class="avatar">
+              <img alt="" src="http://1.gravatar.com/avatar/72fe3a913b423ea641bf27fb30bba8bd?s=60&amp;d=identicon&amp;r=g" srcset="http://1.gravatar.com/avatar/72fe3a913b423ea641bf27fb30bba8bd?s=120&amp;d=identicon&amp;r=g 2x" class="avatar avatar-60 photo" height="60"
+              width="60">
+            </div>
+            <div class="conteudo">
+              <div class="comment-info">
+              <b><a href="" rel="nofollow" target="_blank">arianimartins</a></b> <span class="post-color"> POST</span></div>
+              <div class="comment-text">
+              <input [(ngModel)]="commentText" name="commentText" type="text" placeholder="Add a comment" aria-label="Comment">
+            </div>
+            </div>
+          </li>
+        
+        </ul>
+      </div>
+    
       
     </div>
   </div>
