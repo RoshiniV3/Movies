@@ -52,10 +52,11 @@
                 </select>
               </div>
             </div>
-            <hr>
+          
             <div *ngIf="!visibleMovies" class= "scroll-container">
               <section>
                 <h2>All Movies</h2>
+                <hr>
                 <div class="cards-wrapper">
                   <div *ngFor="let movie of movies | filter: searchText | sort: sortBy" class="card">
                     <div>
@@ -69,6 +70,7 @@
                 </div>
 
                 <h2>Popular</h2>
+                <hr>
                 <div class="cards-wrapper">
                   <div *ngFor="let movie of movies | filter: searchText | sort: sortBy ">
                     <div class="card" *ngIf="movie.rate>7.0">
@@ -82,6 +84,7 @@
                 </div>
 
                 <h2>Trending</h2>
+                <hr>
                 <div class="cards-wrapper">
                   <div *ngFor="let movie of movies | filter: searchText | sort: sortBy ">
                     <div class="card" *ngIf="movie.id>15">
@@ -96,6 +99,7 @@
 
 
                 <h2>Recommended</h2>
+                <hr>
                 <div class="cards-wrapper">
                   <div *ngFor="let movie of movies | filter: searchText | sort: sortBy" class="card">
                     <figure>
