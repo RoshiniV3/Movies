@@ -13,17 +13,25 @@ import { HttpClientMovieService } from './services/http-client-movie.service';
 import { HeaderComponent } from './components/header/header.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { FilterMoviesService } from './services/filter-movies.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EnumToArrayPipe } from './components/list-movies/enumToArray.pipe';
+import { FilterPipe } from './components/list-movies/filter.pipe';
+import { SortPipe } from './components/list-movies/sort.pipe';
+import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
     DashboardComponent,
-    ListMoviesComponent,
     HeaderComponent,
     SidebarComponent
   ],
   imports: [
-    BrowserModule,
     HttpClientModule,
+    CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+    DashboardRoutingModule,
     environment.production ?
     [] : InMemoryWebApiModule.forRoot(MovieInMemDataService)
   ],

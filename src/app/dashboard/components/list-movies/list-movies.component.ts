@@ -49,7 +49,7 @@ export class ListMoviesComponent implements OnInit {
   changeFilter(event: any) {
     event.preventDefault();
     const targetGenre = event.target.innerText.toLowerCase();
-    this.location.go(`?filter=${targetGenre}`);
+   // this.location.go(`?filter=${targetGenre}`);
     this.applyFilter(targetGenre);
   }
   
@@ -59,7 +59,7 @@ export class ListMoviesComponent implements OnInit {
   }
   
   private getParameterByName(name: string, url: string) {
-    if (!url) { url = window.location.href; }
+   // if (!url) { url = window.location.href; }
     name = name.replace(/[\[\]]/g, '\\$&');
     const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
     const results = regex.exec(url);

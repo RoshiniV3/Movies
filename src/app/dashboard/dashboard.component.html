@@ -6,5 +6,5 @@
 <app-header></app-header>
 <app-sidebar (collapsedEvent)="receiveCollapsed($event)"></app-sidebar>
 <section class="main-container" [ngClass]="{collapsed: collapedSideBar}">
-    <app-list-movies></app-list-movies>
+ <router-outlet></router-outlet>
 </section>

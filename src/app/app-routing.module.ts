@@ -9,8 +9,9 @@ const routes: Routes = [
       path: '', component: SignInComponent
   },
   {
-    path:'dashboard',component:DashboardComponent
-  }
+    path: 'login', component: SignInComponent
+},
+  { path: 'dashboard', loadChildren: () => import('../../src/app/dashboard/dashboard.module').then(m => m.DashboardModule)},
 ];
 
 @NgModule({

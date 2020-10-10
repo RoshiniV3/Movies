@@ -24,8 +24,6 @@
                         
 							<h5
 							[ngClass]="{'active': genre.toLowerCase() == selectedGenre}"
-							[routerLink]="['/movies/']"
-							[queryParams]="{filter:genre.toLowerCase()}"
 							(click)="changeFilter($event)">
 							{{genre}}
 						  </h5>
@@ -114,7 +112,7 @@
                     <div *ngIf="visibleMovies" class="movies-container">
                         <div class="movies-list">
                           <div *ngFor="let movie of visibleMovies | filter: searchText | sort: sortBy" class="movie">
-                            <a [routerLink]="['/movies/' + movie.id + '/' + movie.key]">
+                            <a [routerLink]="[movie.id + '/' + movie.key]">
                               <figure>
                                 <img src="assets/movies/{{movie.img}}" alt="movie poster">
                               </figure>

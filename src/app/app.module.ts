@@ -23,14 +23,7 @@ import { SortPipe } from './dashboard/components/list-movies/sort.pipe';
 @NgModule({
   declarations: [
     AppComponent,
-    ListMoviesComponent,
-    DashboardComponent,
-    SignInComponent,
-    HeaderComponent,
-    SidebarComponent,
-    EnumToArrayPipe,
-    FilterPipe,
-    SortPipe,
+    SignInComponent
   ],
   imports: [
     BrowserModule,

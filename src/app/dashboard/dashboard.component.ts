@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
   collapedSideBar: boolean;
-  constructor() { }
-
+  constructor(
+    public router: Router,
+    public ngZone: NgZone
+  ) { }
   ngOnInit() {
   }
 

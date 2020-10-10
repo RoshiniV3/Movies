@@ -11,6 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ListMoviesComponent } from './list-movies.component';
 import { HttpClientMovieService } from '../../services/http-client-movie.service';
 import { FilterMoviesService } from '../../services/filter-movies.service';
+import { RouterModule } from '@angular/router';
+import { MovieDetailComponent } from '../movie-detail/movie-detail.component';
   
 
 
@@ -21,10 +23,17 @@ import { FilterMoviesService } from '../../services/filter-movies.service';
     imports: [
         CommonModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        RouterModule.forChild([
+            { path: '', component: ListMoviesComponent },
+            { path: 'movies', component: ListMoviesComponent },
+            { path: ':id/:title', component: MovieDetailComponent },
+            { path: 'movies/:id/:title', component: MovieDetailComponent }
+          ]),
     ],
     declarations: [
         ListMoviesComponent,
+        MovieDetailComponent,
         EnumToArrayPipe,
         FilterPipe,
         SortPipe
