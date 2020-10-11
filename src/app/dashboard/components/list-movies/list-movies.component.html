@@ -43,7 +43,7 @@
 			    <div class="col-md-8">
             <div class="movies-list-header">
               <h2  (click)="changegenre()"><strong>Select Genre</strong></h2>
-              <div class="sort">
+              <div class="sort" *ngIf="visibleMovies || searchText">
                 SORT BY:
                 <select [(ngModel)]="sortBy">
                   <option value="rate">Rate</option>
@@ -52,7 +52,7 @@
               </div>
             </div>
           
-            <div *ngIf="!visibleMovies" class= "scroll-container">
+            <div *ngIf="!visibleMovies && !searchText" class= "scroll-container">
               <section>
 
                 <h2>All Movies</h2>
@@ -166,7 +166,30 @@
               </section>
            </div>
 
-                    <div *ngIf="visibleMovies" class="movies-container">
+           <div *ngIf="searchText && !visibleMovies" class="movies-container">
+            <div class="movies-list">
+              <div *ngFor="let movie of movies | filter: searchText | sort: sortBy"  [routerLink]="[movie.id + '/' + movie.key]"  class="movie">
+                <a >
+                  <figure>
+                    <img src="assets/movies/{{movie.img}}" alt="movie poster">
+                  </figure>
+                  <div class="rate" >
+                    
+                    <a> {{movie.name}}<img src="assets/icons/icon.png" alt="movie poster"></a>
+
+          
+                  </div>
+                  <div class="rate" >
+                    
+                    <a><img src="assets/icons/star.svg" alt="movie poster">{{movie.rate}}</a>
+
+          
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+                    <div *ngIf="!searchText && visibleMovies" class="movies-container">
                         <div class="movies-list">
                           <div *ngFor="let movie of visibleMovies | filter: searchText | sort: sortBy"  [routerLink]="[movie.id + '/' + movie.key]"  class="movie">
                             <a >

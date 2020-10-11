@@ -44,6 +44,7 @@ export class ListMoviesComponent implements OnInit, AfterViewInit {
   visibleMovies: Movie[] = null;
 index=0;
   searchText: any = '';
+
   sortBy: any = 'id';
 
   public genres = Genre;

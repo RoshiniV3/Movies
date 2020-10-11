@@ -246,10 +246,11 @@ $secondary-title: $yellow;
   .movie{
     margin-bottom: 1.8em;
     flex-basis: 20%;
-  
-
+    background-color:black;
+    color:white;
+align-items:center;
     a{
-      color: black;
+      color: white;
       align-items:center;
     }
     figure{
@@ -272,11 +273,19 @@ $secondary-title: $yellow;
     }
     
     .title{
-      color: black;
+      position: relative;
+      /* padding: 7px; */
+      text-align: center;
+      /* background: #e7e7e7; */
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100%;
+      color:white;
     
     }
     .rate{
-      color: black;
+      color: white;
       padding-bottom: 1.5em;
     }
   }
@@ -344,6 +353,8 @@ $secondary-title: $yellow;
       .movie{
         flex-basis: 50%!important;
         justify-content: space-between;
+        background-color:black;
+        color:white;
       }
       figure{
         img{
