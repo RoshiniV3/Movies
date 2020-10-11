@@ -1,6 +1,8 @@
 import { Component, NgZone, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
+import { User } from './login-services/_models/user';
+import { AuthenticationService } from './login-services/_services';
 
 @Component({
   selector: 'app-root',
@@ -8,20 +10,17 @@ import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'MoviesDatabase';
-  signin:boolean;
-  items: any;
-  jsonData: any;
-    currentRate = 0;
-  
+  currentUser: User;
+
   constructor(
-    public router: Router,
-    public ngZone: NgZone
-  ) { }
+      private router: Router,
+      private authenticationService: AuthenticationService
+  ) {
+      
+  }
+ 
 
-  ngOnInit() {
-   
 
-   }
 }

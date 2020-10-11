@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { User } from 'src/app/login-services/_models';
+import { AuthenticationService } from 'src/app/login-services/_services';
 import { AuthService } from 'src/app/shared/services/auth.service';
 @Component({
     selector: 'app-header',
@@ -9,8 +11,9 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 export class HeaderComponent implements OnInit {
     public pushRightClass: string;
     class_left: boolean;
+    currentUser: User;
 
-    constructor( public router: Router, public authService: AuthService) {
+    constructor( public router: Router, public authService: AuthService,public authenticationService:AuthenticationService) {
 
         this.router.events.subscribe(val => {
             if (
@@ -21,10 +24,13 @@ export class HeaderComponent implements OnInit {
                 this.toggleSidebar();
             }
         });
+
+
     }
 
     ngOnInit() {
         this.pushRightClass = 'push-right';
+        this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
     }
 
     isToggled(): boolean {
@@ -39,9 +45,12 @@ export class HeaderComponent implements OnInit {
 
 
 
-    onLoggedout() {
-        localStorage.removeItem('isLoggedin');
+   logout() {
+        this.authenticationService.logout();
+        this.router.navigate(['/login']);
     }
+
+ 
 
     
 }

@@ -1,29 +1,24 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
-import { HttpClientModule } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { MovieInMemDataService } from './dashboard/services/movie-in-mem-data.service';
-import { ListMoviesComponent } from './dashboard/components/list-movies/list-movies.component';
-import { HttpClientMovieService } from './dashboard/services/http-client-movie.service';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
-import { HeaderComponent } from './dashboard/components/header/header.component';
-import { SidebarComponent } from './dashboard/components/sidebar/sidebar.component';
 // Reactive Form
 import { ReactiveFormsModule,FormsModule } from "@angular/forms";
 import { FilterMoviesService } from './dashboard/services/filter-movies.service';
-import { EnumToArrayPipe } from './dashboard/components/list-movies/enumToArray.pipe';
-import { FilterPipe } from './dashboard/components/list-movies/filter.pipe';
-import { SortPipe } from './dashboard/components/list-movies/sort.pipe';
 import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+// used to create fake backend
+import { fakeBackendProvider } from './login-services/_helpers'
+import { JwtInterceptor, ErrorInterceptor } from './login-services/_helpers';
+import { LoginComponent } from './components/login/login.component'
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent,
     SignInComponent
   ],
   imports: [
@@ -36,7 +31,10 @@ import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
     environment.production ?
     [] : InMemoryWebApiModule.forRoot(MovieInMemDataService)
   ],
-  providers: [FilterMoviesService],
+  providers: [FilterMoviesService, 
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    fakeBackendProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
