@@ -42,15 +42,13 @@ export class ListMoviesComponent implements OnInit, AfterViewInit {
   showgenre=false;
   movies: Movie[] = null;
   visibleMovies: Movie[] = null;
-index=0;
   searchText: any = '';
-
   sortBy: any = 'id';
-
   public genres = Genre;
-  selectedGenre = 'all';
- images = ['assets/bg.jpg'];   
+  selectedGenre = 'all';  
   showcarousel= false;
+  moviespopular: { id: number; key: string; name: string; description: string; genres: string[]; rate: string; length: string; img: string; cover: string; }[];
+  showcarouselpopular: boolean;
 
 
   constructor(
@@ -59,11 +57,7 @@ index=0;
     private router: Router,
     private cdr: ChangeDetectorRef,
     private location: Location) {
-      this.router.events.pipe(
-        filter(event => event instanceof NavigationEnd)
-      ).subscribe((event: NavigationEnd) => {
-        this.selectedGenre = this.getParameterByName('filter', event.url) || 'all';
-      });
+     
     }
   ngOnInit(): void {
   this.getMovies()
@@ -77,22 +71,16 @@ index=0;
   getMovies() {
     this.movieService.getMovies().subscribe(data => { 
       this.movies = data;
-      this.tempData = [];
       this.showcarousel=true;
-      this.carouselTileItems$ = interval(500).pipe(
-        startWith(-1),
-        take( 10),
-        map(val => {
-          const data = (this.tempData = [
-            ...this.tempData,
-            this.movies[this.movies.length]
-           
-          ]);
-         
-          return data;
-        })
+      this.moviespopular=[];
+    
+     this.movies.forEach((x) => { 
+       if (parseInt(x.rate) > 6.5){
+        this.moviespopular.push(x)
+       }
         
-      ); 
+      });
+      this.showcarouselpopular=true;
     }); 
 
  
@@ -101,7 +89,6 @@ index=0;
   changeFilter(event: any) {
     event.preventDefault();
     const targetGenre = event.target.innerText.toLowerCase();
-   // this.location.go(`?filter=${targetGenre}`);
     this.applyFilter(targetGenre);
   }
   
@@ -110,15 +97,7 @@ index=0;
     this.visibleMovies = this.filterMoviesService.filterMovies(filterBy.toLowerCase(), this.movies);
   }
   
-  private getParameterByName(name: string, url: string) {
-   // if (!url) { url = window.location.href; }
-    name = name.replace(/[\[\]]/g, '\\$&');
-    const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
-    const results = regex.exec(url);
-    if (!results) { return null; }
-    if (!results[2]) { return ''; }
-    return decodeURIComponent(results[2].replace(/\+/g, ' '));
-  }
+
   private changegenre(){
     this.showgenre=!this.showgenre;
     if(this.showgenre==false){
