@@ -14,6 +14,8 @@ import { FilterMoviesService } from '../../services/filter-movies.service';
 import { RouterModule } from '@angular/router';
 import { MovieDetailComponent } from '../movie-detail/movie-detail.component';
 import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
+import { NguCarouselModule } from '@ngu/carousel';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   
 
 
@@ -26,6 +28,7 @@ import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
         FormsModule,
         ReactiveFormsModule,
         NgbRatingModule,
+        NguCarouselModule,
         RouterModule.forChild([
             { path: '', component: ListMoviesComponent },
             { path: 'movies', component: ListMoviesComponent },
@@ -48,6 +51,7 @@ import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
     ],
     providers: [
         HttpClientModule,
+        
         HttpClientMovieService,
    FilterMoviesService,
    EnumToArrayPipe,

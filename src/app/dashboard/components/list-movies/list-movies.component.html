@@ -57,34 +57,43 @@
 
                 <h2>All Movies</h2>
                 <hr>
-                <div class="cards-wrapper">
-                  <div *ngFor="let movie of movies | filter: searchText | sort: sortBy ">
-                    <div class="card">
-                      <figure >
+                <ngu-carousel *ngIf="showcarousel" #myCarousel class="myCarousel" [inputs]="carouselTileConfig" [dataSource]="movies">
+                  <ngu-tile *nguCarouselDef="let movie ; index as i;">
+                    <div [routerLink]="[movie.id + '/' + movie.key]" class="card" >
+                      <figure>
                         <img src="assets/movies/{{movie.img}}" alt="movie poster">
                       </figure>
-                      <div class="title" >
+                                           <div class="title" >
                                 
-                        <div [routerLink]="[movie.id + '/' + movie.key]" > {{movie.name}}<img src="assets/icons/icon.png" alt="movie poster"></div>
+                        <div [routerLink]="[movie.id + '/' + movie.key]" > {{movie.name}}</div>
 
               
                       </div>
-                              <div  class="rate" >
-                                
-                                <a><img src="assets/icons/star.svg" alt="movie poster">{{movie.rate}}</a>
+                      <div class="rate" >
+                        
+                        <a><img src="assets/icons/star.svg" alt="movie poster">{{movie.rate}}</a>
 
-                      
-                              </div>
+              
+                      </div>
                     </div>
-                   
-            
-                  </div>
-                </div>
+                  </ngu-tile>
+                
+                  <button NguCarouselPrev class="leftRs" [style.opacity]="myCarousel.isFirst ? 0.5 : 1">
+                    &lt;
+                  </button>
+                  <button NguCarouselNext class="rightRs" [style.opacity]="myCarousel.isLast ? 0.5 : 1">
+                    &gt;
+                  </button>
+                
+                
+                </ngu-carousel>
+
+                
                 <h2>Popular</h2>
                 <hr>
                 <div class="cards-wrapper">
                   <div *ngFor="let movie of movies | filter: searchText | sort: sortBy ">
-                    <div  class="card" *ngIf="movie.rate>7.0">
+                    <div  class="card" >
                       <figure>
                         <img src="assets/movies/{{movie.img}}" alt="movie poster">
                       </figure>
