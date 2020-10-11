@@ -97,7 +97,7 @@
                       <figure>
                         <img src="assets/movies/{{movie.img}}" alt="movie poster">
                       </figure>
-                                           <div class="title" >
+                     <div class="title" >
                                 
                         <div [routerLink]="[movie.id + '/' + movie.key]" > {{movie.name}}</div>
 
@@ -121,6 +121,46 @@
                 
                 
                 </ngu-carousel>
+
+
+
+
+
+
+                
+              <h2 *ngIf="showcarouseltrending">Trending</h2>
+              <hr *ngIf="showcarouseltrending">
+              <ngu-carousel *ngIf="showcarouseltrending" #myCarousel class="myCarousel" [inputs]="carouselTileConfig" [dataSource]="moviestrending">
+                <ngu-tile *nguCarouselDef="let movie ; index as i;">
+                  <div [routerLink]="[movie.id + '/' + movie.key]" class="card" >
+                    <figure>
+                      <img src="assets/movies/{{movie.img}}" alt="movie poster">
+                    </figure>
+                                         <div class="title" >
+                              
+                      <div [routerLink]="[movie.id + '/' + movie.key]" > {{movie.name}}</div>
+
+            
+                    </div>
+                    <div class="rate" >
+                      
+                      <a><img src="assets/icons/star.svg" alt="movie poster">{{movie.rate}}</a>
+
+            
+                    </div>
+                  </div>
+                </ngu-tile>
+              
+                <button NguCarouselPrev class="leftRs" [style.opacity]="myCarousel.isFirst ? 0.5 : 1">
+                  &lt;
+                </button>
+                <button NguCarouselNext class="rightRs" [style.opacity]="myCarousel.isLast ? 0.5 : 1">
+                  &gt;
+                </button>
+              
+              
+              </ngu-carousel>
+              
 
                   <div *ngFor="let movie of movies | filter: searchText | sort: sortBy ">
                     

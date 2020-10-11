@@ -48,7 +48,9 @@ export class ListMoviesComponent implements OnInit, AfterViewInit {
   selectedGenre = 'all';  
   showcarousel= false;
   moviespopular: { id: number; key: string; name: string; description: string; genres: string[]; rate: string; length: string; img: string; cover: string; }[];
+  moviestrending: { id: number; key: string; name: string; description: string; genres: string[]; rate: string; length: string; img: string; cover: string; }[];
   showcarouselpopular: boolean;
+  showcarouseltrending:boolean;
 
 
   constructor(
@@ -73,7 +75,7 @@ export class ListMoviesComponent implements OnInit, AfterViewInit {
       this.movies = data;
       this.showcarousel=true;
       this.moviespopular=[];
-    
+      this.moviestrending=[];
      this.movies.forEach((x) => { 
        if (parseInt(x.rate) > 6.5){
         this.moviespopular.push(x)
@@ -81,6 +83,15 @@ export class ListMoviesComponent implements OnInit, AfterViewInit {
         
       });
       this.showcarouselpopular=true;
+
+      this.movies.forEach((x) => { 
+        if (x.id > 15){
+         this.moviestrending.push(x)
+        }
+         
+       });
+       console.log(this.moviestrending)
+      this.showcarouseltrending=true;
     }); 
 
  
