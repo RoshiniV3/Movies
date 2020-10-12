@@ -15,8 +15,7 @@ import { RouterModule } from '@angular/router';
 import { MovieDetailComponent } from '../movie-detail/movie-detail.component';
 import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 import { NguCarouselModule } from '@ngu/carousel';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-  
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -28,6 +27,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         FormsModule,
         ReactiveFormsModule,
         NgbRatingModule,
+        NgbModule,
         NguCarouselModule,
         RouterModule.forChild([
             { path: '', component: ListMoviesComponent },

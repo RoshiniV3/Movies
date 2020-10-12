@@ -32,8 +32,24 @@ export class HttpClientMovieService extends MoviesService {
     );
   }
 
-  addMovie(name: string, episode: string): Observable<Movie> {
-    const movie = { name, episode };
+  addMovie(id: number,
+    key:string,
+    name: string,
+    description: string,
+    genres: string,
+    rate:string,
+    length:string,
+    img:string,
+    cover:string): Observable<Movie> {
+    const movie = {id,
+      key,
+      name,
+      description,
+      genres,
+      rate,
+      length,
+      img,
+      cover};
 
     return this.http.post<Movie>(this.moviesUrl, movie, cudOptions).pipe(
       catchError(this.handleError)

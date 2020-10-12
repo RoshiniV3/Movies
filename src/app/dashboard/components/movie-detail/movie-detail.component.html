@@ -29,6 +29,12 @@
         <a (click)="moviedelete(movie.id)">Delete Movie</a> 
        </div>
        <br>    
+       <div class="movierating" *ngIf="currentUser.role=='admin'">
+        <a (click)="openModal(addProfileModal)">Add Movie</a> 
+       </div>
+       <div class="movierating" *ngIf="currentUser.role=='admin'">
+        <a (click)="openModal(editProfileModal,movie)">Edit Movie</a> 
+       </div>
 
        <div *ngIf="normalload">
        <div class="movierating" *ngIf="currentUser.role=='user'">
@@ -77,9 +83,151 @@
     </div>
   </div>
   </div>  <!---row---->
+  <ng-template #addProfileModal let-modal>
+    <div class="modal-header">
+     <h5 class="modal-title" id="addProfileLabel">Add Profile</h5>
+     <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+     </button>
+    </div>
+    
+    <div class="modal-body">
+     <form [formGroup]="addProfileForm" (ngSubmit)="onSubmit()">
+      <div class="form-group row">
+       <label for="name" class="col-sm-4 col-form-label">Name</label>
+       <div class="col-sm-8">
+        <input type="text" class="form-control" formControlName="name" id="name" required>
+       </div>
+      </div>
+      <div class="form-group row">
+        <label for="key" class="col-sm-4 col-form-label">Key</label>
+        <div class="col-sm-8">
+         <input type="text" class="form-control" formControlName="key" id="key" required>
+        </div>
+       </div>
+      <div class="form-group row">
+        <label for="id" class="col-sm-4 col-form-label">Id</label>
+        <div class="col-sm-8">
+         <input type="text" class="form-control" formControlName="id" id="id" required>
+        </div>
+       </div>
+      <div class="form-group row">
+       <label for="description" class="col-sm-4 col-form-label">Description</label>
+       <div class="col-sm-8">
+        <input type="text" class="form-control" formControlName="description" id="description">
+       </div>
+      </div>
+      <div class="form-group row">
+       <label for="genres" class="col-sm-4 col-form-label">Genres</label>
+       <div class="col-sm-8">
+        <input type="text" class="form-control" formControlName="genres" id="genres">
+       </div>
+      </div>
+      <div class="form-group row">
+        <label for="rate" class="col-sm-4 col-form-label">Rate</label>
+        <div class="col-sm-8">
+         <input type="text" class="form-control" formControlName="rate" id="rate">
+        </div>
+       </div>
+       <div class="form-group row">
+        <label for="length" class="col-sm-4 col-form-label">Length</label>
+        <div class="col-sm-8">
+         <input type="text" class="form-control" formControlName="length" id="length">
+        </div>
+       </div>
+       <div class="form-group row">
+        <label for="img" class="col-sm-4 col-form-label">Image Url</label>
+        <div class="col-sm-8">
+         <input type="text" class="form-control" formControlName="img" id="img">
+        </div>
+       </div>
+       <div class="form-group row">
+        <label for="cover" class="col-sm-4 col-form-label">Cover Photo</label>
+        <div class="col-sm-8">
+         <input type="cover" class="form-control" formControlName="cover" id="cover">
+        </div>
+       </div>
+      <div class="modal-footer">
+       <button type="button" class="btn btn-secondary" (click)="modal.dismiss()">Close</button>
+       <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+     </form>
+    </div>
+   </ng-template>
 
+   <ng-template #editProfileModal let-modal>
+    <div class="modal-header">
+     <h5 class="modal-title" id="editProfileModal">Edit Profile</h5>
+     <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+     </button>
+    </div>
+    
+    <div class="modal-body">
+     <form [formGroup]="editProfileModal" (ngSubmit)="onSubmitform()">
+      <div class="form-group row">
+       <label for="name" class="col-sm-4 col-form-label">Name</label>
+       <div class="col-sm-8">
+        <input type="text" class="form-control" formControlName="name" id="name" required>
+       </div>
+      </div>
+      <div class="form-group row">
+        <label for="key" class="col-sm-4 col-form-label">Key</label>
+        <div class="col-sm-8">
+         <input type="text" class="form-control" formControlName="key" id="key" required>
+        </div>
+       </div>
+      <div class="form-group row">
+        <label for="id" class="col-sm-4 col-form-label">Id</label>
+        <div class="col-sm-8">
+         <input type="text" class="form-control" formControlName="id" id="id" required>
+        </div>
+       </div>
+      <div class="form-group row">
+       <label for="description" class="col-sm-4 col-form-label">Description</label>
+       <div class="col-sm-8">
+        <input type="text" class="form-control" formControlName="description" id="description">
+       </div>
+      </div>
+      <div class="form-group row">
+       <label for="genres" class="col-sm-4 col-form-label">Genres</label>
+       <div class="col-sm-8">
+        <input type="text" class="form-control" formControlName="genres" id="genres">
+       </div>
+      </div>
+      <div class="form-group row">
+        <label for="rate" class="col-sm-4 col-form-label">Rate</label>
+        <div class="col-sm-8">
+         <input type="text" class="form-control" formControlName="rate" id="rate">
+        </div>
+       </div>
+       <div class="form-group row">
+        <label for="length" class="col-sm-4 col-form-label">Length</label>
+        <div class="col-sm-8">
+         <input type="text" class="form-control" formControlName="length" id="length">
+        </div>
+       </div>
+       <div class="form-group row">
+        <label for="img" class="col-sm-4 col-form-label">Image Url</label>
+        <div class="col-sm-8">
+         <input type="text" class="form-control" formControlName="img" id="img">
+        </div>
+       </div>
+       <div class="form-group row">
+        <label for="cover" class="col-sm-4 col-form-label">Cover Photo</label>
+        <div class="col-sm-8">
+         <input type="cover" class="form-control" formControlName="cover" id="cover">
+        </div>
+       </div>
+      <div class="modal-footer">
+       <button type="button" class="btn btn-secondary" (click)="modal.dismiss()">Close</button>
+       <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+     </form>
+    </div>
+   </ng-template>
 
-
+   
   <div class="overlay-ribbon" *ngIf="showribbon">
     <div class="ribbon-content">
       <span id="close" class="close-x"><a href="javascript:void(0)" (click)="showribbon=false">x</a></span>

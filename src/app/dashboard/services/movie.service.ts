@@ -6,9 +6,16 @@ export abstract class MoviesService {
 
   abstract getMovies(): Observable<Movie[]>;
   abstract getMovie(id: number): Observable<Movie>;
-  abstract addMovie(name: string, episode: string): Observable<Movie>;
+  abstract addMovie(     id: number,
+    key:string,
+    name: string,
+    description: string,
+    genres: string,
+    rate:string,
+    length:string,
+    img:string,
+    cover:string): Observable<Movie>;
   abstract deleteMovie(movie: Movie | number): Observable<Movie>;
-  abstract searchMovie(term: string): Observable<Movie[]>;
   abstract updateMovie(movie: Movie): Observable<Movie>;
 
 }
