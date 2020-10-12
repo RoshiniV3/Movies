@@ -5,7 +5,10 @@ import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
 
 import { User } from '../_models';
 
-const users: User[] = [{ id: 1, username: 'test', password: 'test', firstName: 'Test', lastName: 'User' }];
+const users: User[] = [
+    { id: 1, username: 'RoshiniVarada', password: 'test1', firstName: 'Roshini', lastName: 'Varada',role: 'admin' },
+    { id: 1, username: 'TestUser', password: 'test', firstName: 'Test', lastName: 'User',role: 'user' }
+];
 
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
@@ -42,6 +45,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 username: user.username,
                 firstName: user.firstName,
                 lastName: user.lastName,
+                role:user.role,
                 token: 'fake-jwt-token'
             })
         }

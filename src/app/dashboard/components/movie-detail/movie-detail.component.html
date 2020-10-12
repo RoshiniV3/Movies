@@ -26,12 +26,12 @@
         {{movie.description}}
       </p>
 
-      <div class="movierating">
+      <div class="movierating" *ngIf="currentUser.role==user">
        <a *ngIf="!ratingon"(click)="ratingon=true">Rate movie</a> 
      <span *ngIf="ratingon"> <ngb-rating [max]="5" [(rate)]="currentRate" [readonly]="false"></ngb-rating></span> 
       </div>
   <br>      
-      <div class="movierating">
+      <div class="movierating"  *ngIf="currentUser.role==user">
         <a *ngIf="!commenton"(click)="commenton=true">Add comment</a> 
  
        </div>
