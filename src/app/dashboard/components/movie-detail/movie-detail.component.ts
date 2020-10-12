@@ -7,7 +7,7 @@ import { AuthenticationService } from 'src/app/login-services/_services';
 import { User } from 'src/app/login-services/_models';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup } from '@angular/forms';
- addProfileForm: FormGroup;
+ editProfileForm: FormGroup;
 
 @Component({
   selector: 'app-movie-detail',
@@ -16,6 +16,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class MovieDetailComponent implements OnInit {
   movie: Movie = null;
+  editProfileForm: FormGroup;
   addProfileForm: FormGroup;
   error: string = null;
   ratingon=false;
@@ -40,9 +41,20 @@ export class MovieDetailComponent implements OnInit {
       this.currentUser = x;
       console.log(this.role);
     } );
-    this.addProfileForm = this.fb.group({
-      id: [],
-      key:[''],
+    this.editProfileForm = this.fb.group({
+      id:[''],
+      key: [''],
+      name: [''],
+      description: [''],
+      genres: [''],
+      rate:[''],
+      length:[''],
+      img:[''],
+      cover:['']
+     });
+     this.addProfileForm = this.fb.group({
+      id:[''],
+      key: [''],
       name: [''],
       description: [''],
       genres: [''],
@@ -87,13 +99,50 @@ export class MovieDetailComponent implements OnInit {
     );
   }
 
-  openModal(targetModal) {
+  openEditModal(targetModal, movie) {
     this.modalService.open(targetModal, {
      centered: true,
      backdrop: 'static'
     });
+   
+    this.editProfileForm.patchValue({
+      id:movie.id,
+      key: movie.key,
+      name: movie.name,
+      description: movie.description,
+      genres: movie.genres,
+      rate:movie.rate,
+      length:movie.length,
+      img:movie.img,
+      cover:movie.cover
+    });
+   }
+
+   openModal(targetModal) {
+ 
+      this.modalService.open(targetModal, {
+       centered: true,
+       backdrop: 'static'
+      });
+    }
+   onSubmitform() {
+    this.modalService.dismissAll();
+   
+  this.movie.id=parseInt(this.editProfileForm.getRawValue().id),
+    this.movie.key=this.editProfileForm.getRawValue().key,
+    this.movie.name=this.editProfileForm.getRawValue().name,
+    this.movie.description=this.editProfileForm.getRawValue().description,
+    this.movie.genres=this.editProfileForm.getRawValue().genres,
+   this.movie.rate=this.editProfileForm.getRawValue().rate,
+    this.movie.length=this.editProfileForm.getRawValue().length,
+  this.movie.img=this.editProfileForm.getRawValue().img,
+  this.movie.cover=this.editProfileForm.getRawValue().cover
+    
+    console.log("res:", this.editProfileForm.getRawValue());
+    this.httpClientMovieService.updateMovie(this.movie)
 
    }
+
    onSubmit() {
     this.modalService.dismissAll();
     console.log("res:", this.addProfileForm.getRawValue());
@@ -115,7 +164,6 @@ export class MovieDetailComponent implements OnInit {
       },
       err => this.error = err
     );
-    
    }
 
 }

@@ -33,7 +33,7 @@
         <a (click)="openModal(addProfileModal)">Add Movie</a> 
        </div>
        <div class="movierating" *ngIf="currentUser.role=='admin'">
-        <a (click)="openModal(editProfileModal,movie)">Edit Movie</a> 
+        <a (click)="openEditModal(editProfileModal,movie)">Edit Movie</a> 
        </div>
 
        <div *ngIf="normalload">
@@ -164,7 +164,7 @@
     </div>
     
     <div class="modal-body">
-     <form [formGroup]="editProfileModal" (ngSubmit)="onSubmitform()">
+     <form [formGroup]="editProfileForm" (ngSubmit)="onSubmitform()">
       <div class="form-group row">
        <label for="name" class="col-sm-4 col-form-label">Name</label>
        <div class="col-sm-8">
