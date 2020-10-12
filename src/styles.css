@@ -88,11 +88,12 @@ h3 {
 .authBlock {
   margin: 0 auto;
   max-width: 400px;
-  background: white;
   padding: 30px 40px 10px;
   overflow: hidden;
-  -webkit-box-shadow: 0 0 4px 0 rgba(0, 0, 0, .04);
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, .04);
+  background-color: #163a5e;
+  border: none;
+  color: white;
 }
 
 label {
@@ -141,15 +142,38 @@ input:-moz-placeholder {
 
 .displayTable .btn {
   width: 100%;
-  border: none;
-  font-size: 16px;
-  font-weight: 600;
-  padding: 15px 0;
-  background: #15CD72;
-  color: #ffffff;
-  cursor: pointer;
-  outline: none;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 15px 0;
+    background: #36526e;
+    color: #ffffff;
+    cursor: pointer;
+    outline: none;
+    padding-right: 3em;
+    margin-top: 1em;
+    text-align:center;
 }
+@media only screen and (max-width : 48em) {
+
+  .displayTable .btn {
+
+    
+width: 16em;
+border: none;
+font-size: 16px;
+font-weight: 600;
+padding: 15px 0;
+background: #36526e;
+color: #ffffff;
+cursor: pointer;
+outline: none;
+margin-top: 1em;
+padding-right: 3em;
+  }
+}
+
+
 
 .displayTable .btn:hover {
   opacity: .88;

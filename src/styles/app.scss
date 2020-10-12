@@ -12,6 +12,24 @@
 
 
 .big-banner{
+.alert-info{
+  color: #0c5460;
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+    text-align: center;
+    justify-content: center;
+    border-radius: 11vw;
+   
+}
+
+button{
+  border-radius: 11vw;
+}
+  input{
+    border-radius: 2em;
+    height: 4em;
+
+  }
     background-image: url("src/assets/124.jpg");
     /* Set rules to fill background */
     min-height: 100%;
@@ -31,6 +49,15 @@
       left: 50%;
       margin-left: -512px;   /* 50% */
     }
+  .alert-info{
+    width: 16em;
+  }
+  input{
+    border-radius: 2em;
+    width: 25em;
+    
+
+  }
   
   }
 }

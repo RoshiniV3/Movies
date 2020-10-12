@@ -336,18 +336,34 @@ $secondary-title: $yellow;
  
   }
 
-  .ngb-rating {
-    font-size: 6vw;
+  .movie-info-container .overlay-ribbon{
+    top: 12em;
+    width: 10em;
+
+    .ribbon-content{
+      .img-container{
+        img{
+          width:9.3em;
+        }
+         
+      }
+    }
   }
 
-  .movie-detail h2{
-    color: #ffffff;
-    margin-top: 29vw;
-    padding-bottom: 2vw;
-    -webkit-box-align: center;
-    align-items: center;
-    padding-left: 10em;
-  }
+  .movie-detail-container{
+    ngb-rating {
+      font-size: 3em;
+    }
+
+    h2{
+      color: #ffffff;
+      margin-top: 29vw;
+      padding-bottom: 2vw;
+      -webkit-box-align: center;
+      align-items: center;
+      padding-left: 10em;
+    }
+  } 
 }
 
 
