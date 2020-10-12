@@ -94,6 +94,8 @@ h3 {
   background-color: #002045;
   border: none;
   color: white;
+  border-radius: 3em;
+  padding-bottom:1em;
 }
 
 label {
