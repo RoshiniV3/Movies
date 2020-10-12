@@ -25,16 +25,18 @@
       <p class="desc">
         {{movie.description}}
       </p>
-      <div class="movierating" *ngIf="currentUser.role=='admin'">
-        <a (click)="moviedelete(movie.id)">Delete Movie</a> 
+
+      <div class="short-info" *ngIf="currentUser.role=='admin'">
+        <div class="genres">
+ 
+        <a (click)="openModal(addProfileModal)"><i class="fa fa-plus"></i></a> 
+        <a (click)="openEditModal(editProfileModal,movie)"><i class="fa fa-edit"></i></a> 
+        <a (click)="moviedelete(movie.id)"><i class="fa fa-remove"></i></a> 
+        </div>
+        
        </div>
        <br>    
-       <div class="movierating" *ngIf="currentUser.role=='admin'">
-        <a (click)="openModal(addProfileModal)">Add Movie</a> 
-       </div>
-       <div class="movierating" *ngIf="currentUser.role=='admin'">
-        <a (click)="openEditModal(editProfileModal,movie)">Edit Movie</a> 
-       </div>
+    
 
        <div *ngIf="normalload">
        <div class="movierating" *ngIf="currentUser.role=='user'">
