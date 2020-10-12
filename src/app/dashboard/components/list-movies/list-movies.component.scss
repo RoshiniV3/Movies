@@ -101,6 +101,11 @@ $secondary-title: $yellow;
     border: 1px solid rgba(0, 0, 0, 0.125);
     border-radius: 0.25rem;
     margin-left: 17vw;
+
+    .active{
+      background-color:grey;
+      color:white;
+    }
 }
 
 .genres-list{
@@ -334,6 +339,7 @@ align-items:center;
     .card-movies{
         margin-left: 3vw;
         margin-right: 4vw;
+       
     }
     .search-bar{
     margin-top: 22vw;

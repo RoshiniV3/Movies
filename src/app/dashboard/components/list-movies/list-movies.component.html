@@ -21,10 +21,10 @@
            
                         
           <div>
-            <div *ngFor="let genre of genres | enumToArray" class="card-header">
+            <div *ngFor="let genre of genres | enumToArray" class="card-header" 	[ngClass]="{'active': genre.toLowerCase() == selectedGenre}">
                         
 							<h5
-							[ngClass]="{'active': genre.toLowerCase() == selectedGenre}"
+						
 							(click)="changeFilter($event)">
 							{{genre}}
 						  </h5>
