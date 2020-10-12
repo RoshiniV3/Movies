@@ -145,7 +145,7 @@ input:-moz-placeholder {
     border: none;
     font-size: 16px;
     font-weight: 600;
-    padding: 15px 0;
+    padding: 15px 3em;
     background: #36526e;
     color: #ffffff;
     cursor: pointer;
@@ -163,7 +163,7 @@ width: 16em;
 border: none;
 font-size: 16px;
 font-weight: 600;
-padding: 15px 0;
+padding: 15px 3em;
 background: #36526e;
 color: #ffffff;
 cursor: pointer;

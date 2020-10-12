@@ -54,6 +54,8 @@
 
      <span> <ngb-rating [max]="5" [(rate)]="currentRate" [readonly]="false"></ngb-rating></span> 
       </div>
+      
+     
   <br>      
 
 
@@ -77,6 +79,10 @@
         
         </ul>
       </div>
+
+      <div class="movierating" *ngIf="currentUser.role=='user' && !normalload" >
+        <a (click)="normalload=true">Back</a> 
+       </div>
     
       
     </div>
