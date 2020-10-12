@@ -405,7 +405,7 @@ a{
     height: 3em;
     width: 100%;
     border: 0;
-    background-color: #212529;
+    background-color: #897980;
     color: white;
   }
   
@@ -497,14 +497,14 @@ a{
   }
   
   .normal .conteudo{
-    background: #212529;
-    color: #212529;
+    background: #897980;
+    color: #897980;
     float: left;
     clear:none;
     border-bottom-left-radius: 30px 0px\9;
   }
   .normal .conteudo a{
-    color: #D81B60;
+    color: white;
     text-decoration: none;
     cursor: pointer;
     max-width:60%
@@ -520,7 +520,7 @@ a{
     bottom: -2px;
     left: -7px;
     height: 19px;
-    border-left: 20px solid #212529; /*cor do balão 2*/
+    border-left: 20px solid #897980; /*cor do balão 2*/
     border-bottom-right-radius: 16px 14px;
     -webkit-transform: translate(0, -2px);
     transform: translate(0, -2px);

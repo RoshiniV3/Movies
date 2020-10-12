@@ -23,7 +23,7 @@ import { slider } from '../../slide-animation';
 })
 export class ListMoviesComponent implements OnInit, AfterViewInit {
 
-
+showall=false;
   public carouselTileItems$: Observable<number[]>;
   public carouselTileConfig: NguCarouselConfig = {
     grid: { xs: 2, sm: 2, md: 2, lg: 5, all: 0 },
