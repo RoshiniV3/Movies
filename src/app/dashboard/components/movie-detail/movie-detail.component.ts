@@ -19,6 +19,7 @@ export class MovieDetailComponent implements OnInit {
   commenton=false;
   currentUser: User;
   newid=0;
+  showribbon=false;;
   constructor(
     private httpClientMovieService: HttpClientMovieService,
     public authenticationService:AuthenticationService,
@@ -57,7 +58,10 @@ export class MovieDetailComponent implements OnInit {
   findnewmovie(){
     this.httpClientMovieService.getMovie(this.newid)
     .subscribe(
-      data => this.movie = data,
+      data => {
+        this.movie = data;
+        this.showribbon=true;
+      },
       err => this.error = err
     );
   }
