@@ -25,6 +25,8 @@ export class MovieDetailComponent implements OnInit {
   newid=0;
   showribbon=false;role: string;
   normalload=true;
+  currentRate=0;
+  commentText=" ";
 ;
   constructor(
     private httpClientMovieService: HttpClientMovieService,

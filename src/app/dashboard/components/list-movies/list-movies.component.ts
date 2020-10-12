@@ -101,13 +101,13 @@ export class ListMoviesComponent implements OnInit, AfterViewInit {
     this.applyFilter(targetGenre);
   }
   
-  private applyFilter(filterBy: string) {
+  public applyFilter(filterBy: string) {
     this.selectedGenre = filterBy;
     this.visibleMovies = this.filterMoviesService.filterMovies(filterBy.toLowerCase(), this.movies);
   }
   
 
-  private changegenre(){
+  public changegenre(){
     this.showgenre=!this.showgenre;
     if(this.showgenre==false){
       this.visibleMovies=undefined;
