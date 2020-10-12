@@ -19,7 +19,9 @@ export class MovieDetailComponent implements OnInit {
   commenton=false;
   currentUser: User;
   newid=0;
-  showribbon=false;;
+  showribbon=false;role: string;
+  normalload=true;
+;
   constructor(
     private httpClientMovieService: HttpClientMovieService,
     public authenticationService:AuthenticationService,
@@ -29,7 +31,10 @@ export class MovieDetailComponent implements OnInit {
   ngOnInit() {
     const { id } = this.activatedRoute.snapshot.params;
     this.getMovie(+id);
-    this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+    this.authenticationService.currentUser.subscribe(x =>{
+      this.currentUser = x;
+      console.log(this.role);
+    } );
   }
 
   getMovie(id: number) {
@@ -41,22 +46,22 @@ export class MovieDetailComponent implements OnInit {
   }
 
   moviedelete(id:number){
-    this.newid=id+1;
+    this.newid=id;
     this.httpClientMovieService.deleteMovie(id)
     .subscribe(
       data => {
 
         window.alert("movie is deleted");
        
-        this.findnewmovie()
+        this.findnewmovie(this.newid)
       },
 
       err => window.alert(err)
     );
   }
 
-  findnewmovie(){
-    this.httpClientMovieService.getMovie(this.newid)
+  findnewmovie(id){
+    this.httpClientMovieService.getMovie(id+1)
     .subscribe(
       data => {
         this.movie = data;

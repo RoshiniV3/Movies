@@ -25,22 +25,34 @@
       <p class="desc">
         {{movie.description}}
       </p>
-      <div class="movierating">
+      <div class="movierating" *ngIf="currentUser.role=='admin'">
         <a (click)="moviedelete(movie.id)">Delete Movie</a> 
        </div>
+       <br>    
+
+       <div *ngIf="normalload">
+       <div class="movierating" *ngIf="currentUser.role=='user'">
+        <a (click)="normalload=false">Comment or Rate</a> 
+       </div>
+       <br>    
+       <div class="movierating" *ngIf="currentUser.role=='user'">
+        <a (click)="findnewmovie(movie.id)">Check out a new one....</a> 
+       </div>
+      </div> 
 
 
-      <div class="movierating" *ngIf="currentUser.role==user">
+      <div *ngIf="!normalload">
+      <div class="movierating" *ngIf="currentUser.role=='user'">
        <a *ngIf="!ratingon"(click)="ratingon=true">Rate movie</a> 
      <span *ngIf="ratingon"> <ngb-rating [max]="5" [(rate)]="currentRate" [readonly]="false"></ngb-rating></span> 
       </div>
   <br>      
-      <div class="movierating"  *ngIf="currentUser.role==user">
+      <div class="movierating"  *ngIf="currentUser.role=='user'">
         <a *ngIf="!commenton"(click)="commenton=true">Add comment</a> 
  
        </div>
 
-     
+      </div>
 
       <div class="area-comentarios" *ngIf="commenton">
         <ul>
@@ -70,7 +82,7 @@
 
   <div class="overlay-ribbon" *ngIf="showribbon">
     <div class="ribbon-content">
-      <span id="close" class="close-x"><a href="#">x</a></span>
+      <span id="close" class="close-x"><a href="javascript:void(0)" (click)="showribbon=false">x</a></span>
       <div class="img-container"><img src="https://pixabay.com/static/uploads/photo/2015/10/31/21/02/cop-1016218_960_720.jpg" width="171" height="135" alt="" /></div>
       <h3>Hey! {{currentUser.firstName}}</h3>
       <p>Here is a new movie check it out!</p>
