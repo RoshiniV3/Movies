@@ -26,12 +26,12 @@
         {{movie.description}}
       </p>
 
-      <div class="short-info" *ngIf="currentUser.role=='admin'">
+      <div class="short-info-icons" *ngIf="currentUser.role=='admin'">
         <div class="genres">
  
-        <a (click)="openModal(addProfileModal)"><i class="fa fa-plus"></i></a> 
-        <a (click)="openEditModal(editProfileModal,movie)"><i class="fa fa-edit"></i></a> 
-        <a (click)="moviedelete(movie.id)"><i class="fa fa-remove"></i></a> 
+        <a (click)="openModal(addProfileModal)"><i class="fa fa-plus"></i>Add</a> 
+        <a (click)="openEditModal(editProfileModal,movie)"><i class="fa fa-edit"></i>Edit</a> 
+        <a (click)="moviedelete(movie.id)"><i class="fa fa-remove"></i>Delete</a> 
         </div>
         
        </div>

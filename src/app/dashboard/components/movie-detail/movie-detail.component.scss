@@ -261,6 +261,7 @@ $secondary-title: $yellow;
     flex-direction: row;
     text-transform: capitalize;
     padding-bottom: 2vw;
+    
 
     div {
       margin-right: 1em;
@@ -270,6 +271,28 @@ $secondary-title: $yellow;
       color:$pink;
     }
   }
+
+  .short-info-icons{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    text-transform: capitalize;
+    padding-bottom: 2vw;
+     padding-left: 10vw;
+	
+a{
+  color:#3f5c80;
+}
+    div {
+      margin-right: 1em;
+    }
+
+    strong{
+      color:$pink;
+    }
+  }
+
+
 
   .movierating{
 
@@ -302,6 +325,12 @@ $secondary-title: $yellow;
 }
 
 @media only screen and (max-width : 48em) {
+
+
+  .movie-detail .short-info-icons{
+
+     padding-left: 1vw;
+  }
   .movie-detail-container{
     flex-direction: column-reverse;
     transform: translateY(0);
