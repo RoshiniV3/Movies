@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { HttpClientMovieService } from '../../services/http-client-movie.service';
 import { Movie } from '../../classes/movie';
@@ -18,10 +18,12 @@ export class MovieDetailComponent implements OnInit {
   ratingon=false;
   commenton=false;
   currentUser: User;
+  newid=0;
   constructor(
     private httpClientMovieService: HttpClientMovieService,
     public authenticationService:AuthenticationService,
-    private activatedRoute: ActivatedRoute) {}
+    private activatedRoute: ActivatedRoute,
+    public router:Router) {}
 
   ngOnInit() {
     const { id } = this.activatedRoute.snapshot.params;
@@ -31,6 +33,29 @@ export class MovieDetailComponent implements OnInit {
 
   getMovie(id: number) {
     this.httpClientMovieService.getMovie(id)
+    .subscribe(
+      data => this.movie = data,
+      err => this.error = err
+    );
+  }
+
+  moviedelete(id:number){
+    this.newid=id+1;
+    this.httpClientMovieService.deleteMovie(id)
+    .subscribe(
+      data => {
+
+        window.alert("movie is deleted");
+       
+        this.findnewmovie()
+      },
+
+      err => window.alert(err)
+    );
+  }
+
+  findnewmovie(){
+    this.httpClientMovieService.getMovie(this.newid)
     .subscribe(
       data => this.movie = data,
       err => this.error = err

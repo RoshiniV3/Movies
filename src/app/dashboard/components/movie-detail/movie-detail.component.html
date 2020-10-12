@@ -25,6 +25,10 @@
       <p class="desc">
         {{movie.description}}
       </p>
+      <div class="movierating">
+        <a (click)="moviedelete(movie.id)">Delete Movie</a> 
+       </div>
+
 
       <div class="movierating" *ngIf="currentUser.role==user">
        <a *ngIf="!ratingon"(click)="ratingon=true">Rate movie</a> 
@@ -35,7 +39,9 @@
         <a *ngIf="!commenton"(click)="commenton=true">Add comment</a> 
  
        </div>
-  
+
+     
+
       <div class="area-comentarios" *ngIf="commenton">
         <ul>
           <li class="unico-comentario normal">
