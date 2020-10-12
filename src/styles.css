@@ -83,6 +83,7 @@ h3 {
   text-align: center;
   font-size: 22px;
   margin: 0 0 20px;
+
 }
 
 .authBlock {
@@ -96,6 +97,9 @@ h3 {
   color: white;
   border-radius: 3em;
   padding-bottom:1em;
+}
+.authBlock h3{
+  padding-bottom: 0.5em;
 }
 
 label {

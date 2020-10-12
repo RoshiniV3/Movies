@@ -216,9 +216,9 @@ $secondary-title: $yellow;
     height: 2.5em;
     width: 9em;
     font-size: 1.2em;
-    margin-left: 1em;
-    /* align-items: center; */
+    /* margin-left: 0; */
     padding-left: 3vw;
+    margin-right: -7em;
     
   }
 }
@@ -252,7 +252,7 @@ $secondary-title: $yellow;
     background-color:black;
     color:white;
 align-items:center;
-margin-left: 3em;
+
 
     a{
       color: white;
@@ -299,12 +299,7 @@ margin-left: 3em;
 
 @media only screen and (max-width : 48em) {
 
-  .myCarousel{
-  
-    .card{
-     
-    }
-  }
+
 
   .movies-container .movies-list-header{
   padding-right:0em;
@@ -312,13 +307,28 @@ margin-left: 3em;
  
 }
 
+.movies-container{
+  .movie{
+    flex-basis:50%;
+    width:50%;
+      figure{
+        img{
+          width:10em;
+        }
+      }
+     
+  }
+} 
+
 .movies-list-header{
   select{
-    margin-left:6em;
+    margin-left:2.5em;
   }
 
   h2 strong{
     width:max-content;
+    font-size: 2rem;
+    padding-top: 1em;
   }
 }
     .card-movies{
@@ -362,7 +372,7 @@ margin-left: 3em;
         justify-content: space-between;
         background-color:black;
         color:white;
-        margin-left: 3em;
+     
         
       }
       figure{

@@ -84,10 +84,10 @@
                     </div>
                   </ngu-tile>
                 
-                  <button NguCarouselPrev class="leftRs" [style.opacity]="myCarousel.isFirst ? 0.5 : 1">
+                  <button NguCarouselPrev class="leftRs" [style.opacity]="myCarousel.isFirst ? 0.8 : 1.2">
                     &lt;
                   </button>
-                  <button NguCarouselNext class="rightRs" [style.opacity]="myCarousel.isLast ? 0.5 : 1">
+                  <button NguCarouselNext class="rightRs" [style.opacity]="myCarousel.isLast ? 0.8 : 1.2">
                     &gt;
                   </button>
                 
@@ -118,10 +118,10 @@
                     </div>
                   </ngu-tile>
                 
-                  <button NguCarouselPrev class="leftRs" [style.opacity]="myCarousel.isFirst ? 0.5 : 1">
+                  <button NguCarouselPrev class="leftRs" [style.opacity]="myCarousel.isFirst ? 0.8: 1.2">
                     &lt;
                   </button>
-                  <button NguCarouselNext class="rightRs" [style.opacity]="myCarousel.isLast ? 0.5 : 1">
+                  <button NguCarouselNext class="rightRs" [style.opacity]="myCarousel.isLast ? 0.8 : 1.2">
                     &gt;
                   </button>
                 
@@ -131,8 +131,8 @@
 
 
 
-              <h2>All Movies <span class="more" (click)="showall=true">More</span></h2>
-              <hr>
+              <h2 *ngIf="showcarousel">All Movies <span *ngIf="!showall" class="more" (click)="showall=true">More</span><span *ngIf="showall" class="more" (click)="showall=false">Back</span></h2>
+              <hr *ngIf="showcarousel">
               <ngu-carousel *ngIf="showcarousel" #myCarousel class="myCarousel" [inputs]="carouselTileConfig" [dataSource]="movies">
                 <ngu-tile *nguCarouselDef="let movie ; index as i;">
                   <div [routerLink]="[movie.id + '/' + movie.key]" class="card" >
@@ -154,10 +154,10 @@
                   </div>
                 </ngu-tile>
               
-                <button NguCarouselPrev class="leftRs" [style.opacity]="myCarousel.isFirst ? 0.5 : 1">
+                <button NguCarouselPrev class="leftRs" [style.opacity]="myCarousel.isFirst ? 0.8 : 1.2">
                   &lt;
                 </button>
-                <button NguCarouselNext class="rightRs" [style.opacity]="myCarousel.isLast ? 0.5 : 1">
+                <button NguCarouselNext class="rightRs" [style.opacity]="myCarousel.isLast ? 0.8 : 1.2">
                   &gt;
                 </button>
               
