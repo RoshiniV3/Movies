@@ -31,6 +31,7 @@ export class HeaderComponent implements OnInit {
     ngOnInit() {
         this.pushRightClass = 'push-right';
         this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+      
     }
 
     isToggled(): boolean {

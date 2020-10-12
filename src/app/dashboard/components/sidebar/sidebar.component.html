@@ -1,6 +1,6 @@
 <nav class="sidebar" [ngClass]="{sidebarPushRight: isActive, collapsed: collapsed}">
     <div class="list-group">
-        <a routerLink="movies" [routerLinkActive]="['router-link-active']" class="list-group-item">
+        <a [routerLinkActive]="['router-link-active']" class="list-group-item">
             <i class="fa fa-fw fa-dashboard"></i>&nbsp;
             <span>{{ 'Dashboard' }}</span>
         </a>
@@ -8,11 +8,11 @@
             <i class="fa fa-fw fa-edit"></i>&nbsp;
             <span>{{ 'Movies'}}</span>
         </a>
-        <a [routerLink]="['movies']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+        <a  [routerLinkActive]="['router-link-active']" class="list-group-item">
             <i class="fa fa-fw fa-users"></i>&nbsp;
             <span>{{ 'Profile' }}</span>
         </a>
-        <a class="list-group-item">
+        <a class="list-group-item" (click)="logout()">
             <i class="fa fa-fw fa-sign-out"></i>&nbsp;
             <span>{{ 'Log Out' }}</span>
         </a>
