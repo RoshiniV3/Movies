@@ -210,13 +210,16 @@ $secondary-title: $yellow;
   }
 
   select{
-    background-color: lighten($primary-color, 15);
+    background-color: #294990;
     border: none;
-    color: $primary-title;
+    color: #ffffff;
     height: 2.5em;
     width: 9em;
     font-size: 1.2em;
     margin-left: 1em;
+    /* align-items: center; */
+    padding-left: 3vw;
+    
   }
 }
 
@@ -249,6 +252,8 @@ $secondary-title: $yellow;
     background-color:black;
     color:white;
 align-items:center;
+margin-left: 3em;
+
     a{
       color: white;
       align-items:center;
@@ -321,9 +326,11 @@ align-items:center;
         margin-right: 4vw;
     }
     .search-bar{
-        margin-top: 22vw;
-    margin-left: 5vw;
+    margin-top: 22vw;
+    margin-left: 2vw;
     width: 91vw;
+    /* border-color: #1c1b1b; */
+    margin-right: 5em;
     }
   .main-container{
     flex-direction: column;
@@ -351,10 +358,12 @@ align-items:center;
       width: 100%;
 
       .movie{
-        flex-basis: 50%!important;
+        flex-basis: 60%!important;
         justify-content: space-between;
         background-color:black;
         color:white;
+        margin-left: 3em;
+        
       }
       figure{
         img{
@@ -570,53 +579,38 @@ align-items:center;
     border-radius: 999px;
   }
   
-  .leftRs {
+  .leftRs, .leftRs1 {
     position: absolute;
     margin: auto;
-    top: -3em;
-    bottom: 0;
-    width: 2.5em;
-    height: 2.5em;
     box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, 0.3);
+    color: white;
+    top: -3em;
+    bottom: 0px;
+    width: 2em;
+    height: 2em;
     border-radius: 999px;
-    left: 0;
+    left: 1.3vw;
+    border: 0px;
+    background-color: black;
+    font-size: 1.5em;
   }
   
-  .rightRs {
+  .rightRs ,.rightRs1 {
     position: absolute;
     margin: auto;
-    top: -3em;
-    bottom: 0;
-    width: 2.5em;
-    height: 2.5em;
     box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, 0.3);
-    border-radius: 999px;
-    right: 0;
-  }
-  
-  .leftRs1 {
-    position: absolute;
-    margin: auto;
+    color: white;
     top: -3em;
-    bottom: 0;
-    width: 2.5em;
-    height: 2.5em;
-    box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, 0.3);
+    bottom: 0px;
+    width: 2em;
+    height: 2em;
     border-radius: 999px;
-    right: 0;
+    right: 1.3vw;
+    border: 0px;
+    background-color: black;
+    font-size: 1.5em;
   }
-  
-  .rightRs1 {
-    position: absolute;
-    margin: auto;
-    top: -3em;
-    bottom: 0;
-    width: 2.5em;
-    height: 2.5em;
-    box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, 0.3);
-    border-radius: 999px;
-    left: 0;
-  }
+
   
   .myPoint {
     list-style-type: none;

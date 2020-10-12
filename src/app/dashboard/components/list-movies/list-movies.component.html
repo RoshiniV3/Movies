@@ -42,7 +42,8 @@
             <!----modules-->
 			    <div class="col-md-8">
             <div class="movies-list-header">
-              <h2  (click)="changegenre()"><strong>Select Genre</strong></h2>
+              <h2 *ngIf="!visibleMovies"  (click)="changegenre()"><strong>Select Genre</strong></h2>
+              <h2 *ngIf="visibleMovies"  (click)="changegenre()"><strong>Back to Home</strong></h2>
               <div class="sort" *ngIf="visibleMovies || searchText">
                 SORT BY:
                 <select [(ngModel)]="sortBy">
@@ -194,7 +195,7 @@
                   </figure>
                   <div class="title" >
                     
-                    <a> {{movie.name}}<img src="assets/icons/icon.png" alt="movie poster"></a>
+                    <a> {{movie.name}}<img  alt="movie poster"></a>
 
           
                   </div>
@@ -217,7 +218,7 @@
                               </figure>
                               <div class="title" >
                                 
-                                <a> {{movie.name}}<img src="assets/icons/icon.png" alt="movie poster"></a>
+                                <a> {{movie.name}}<img  alt="movie poster"></a>
         
                       
                               </div>

@@ -1,59 +1,21 @@
 <nav class="sidebar" [ngClass]="{sidebarPushRight: isActive, collapsed: collapsed}">
     <div class="list-group">
-        <a routerLink="dashboard" [routerLinkActive]="['router-link-active']" class="list-group-item">
+        <a routerLink="movies" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <i class="fa fa-fw fa-dashboard"></i>&nbsp;
             <span>{{ 'Dashboard' }}</span>
         </a>
         <a [routerLink]="['movies']" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <i class="fa fa-fw fa-edit"></i>&nbsp;
-            <span>{{ 'Assignments'}}</span>
+            <span>{{ 'Movies'}}</span>
         </a>
-        <a [routerLink]="['tables']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+        <a [routerLink]="['movies']" [routerLinkActive]="['router-link-active']" class="list-group-item">
             <i class="fa fa-fw fa-users"></i>&nbsp;
-            <span>{{ 'People' }}</span>
-        </a>
-        <a [routerLink]="['edit-user']" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <i class="fa fa-fw fa-user"></i>&nbsp;
-            <span>{{ 'Profile'}}</span>
+            <span>{{ 'Profile' }}</span>
         </a>
         <a class="list-group-item">
             <i class="fa fa-fw fa-sign-out"></i>&nbsp;
             <span>{{ 'Log Out' }}</span>
         </a>
-     
-       
-
-        <div class="header-fields">
-            <div class="nested-menu">
-                <a class="list-group-item" (click)="addExpandClass('profile')" *ngIf="authService.userData as user">
-                    <span><img class="profileimage" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}">&nbsp; {{user.displayName}}</span>
-                </a>
-                <li class="nested" [class.expand]="showMenu === 'profile'">
-                    <ul class="submenu">
-                        <li>
-                            <a [routerLink]="['layout/edit-user']" [routerLinkActive]="['router-link-active']">
-                                <span><i class="fa fa-fw fa-user"></i> {{ 'Profile'  }}</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)">
-                                <span><i class="fa fa-fw fa-envelope"></i> {{ 'Inbox'  }}</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)">
-                                <span><i class="fa fa-fw fa-gear"></i> {{ 'Settings'}}</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)">
-                                <span><i class="fa fa-fw fa-power-off"></i> {{ 'Log Out' }}</span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </div>
-        </div>
     </div>
     <div class="toggle-button" [ngClass]="{collapsed: collapsed}" (click)="toggleCollapsed()">
         <i class="fa fa-fw fa-angle-double-{{collapsed?'right':'left'}}"></i>&nbsp;

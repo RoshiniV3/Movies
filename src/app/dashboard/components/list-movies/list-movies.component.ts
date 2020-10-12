@@ -2,18 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClientMovieService } from '../../services/http-client-movie.service';
 import { Movie } from '../../classes/movie';
 import { FilterMoviesService } from '../../services/filter-movies.service';
-import { NavigationEnd, Router } from '@angular/router';
+import {  Router } from '@angular/router';
 import { Genre } from '../../classes/genre';
 import { Location } from '@angular/common';
-import { filter } from 'rxjs/operators';
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
   ChangeDetectorRef
 } from '@angular/core';
 import { NguCarouselConfig } from '@ngu/carousel';
-import { interval, Observable } from 'rxjs';
-import { map, startWith, take } from 'rxjs/operators';
+import {Observable } from 'rxjs';
 import { slider } from '../../slide-animation';
 
 @Component({
