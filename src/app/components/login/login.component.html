@@ -3,18 +3,32 @@
 <div class="big-banner">
     <div class="displayTable">
       <div class="displayTableCell">
+        <div style="width: 500px; margin: 2px auto;float:right;">
+
+
+          
+          <div *ngIf="showdata"class="alert info">
+          
+            <label class="close" title="close" for="alert3">
+              <i (click)="showdata=false" class="icon-remove"></i>
+            </label>
+            <p class="inner">
+            <span> Username: RoshiniVarada<br />
+              Password: test1<br /> Role: admin
+              </span> 
+             <span>Username: TestUser<br />
+              Password: test<br /> Role: User</span> 
+            </p>
+          </div>
+
+
+
+        
+        </div>
+        
     
-      
         <div class="authBlock">
           <h3>Sign In</h3>
-          <div class="alert alert-info">
-            Username: TestUser<br />
-            Password: test<br /> Role: User
-        </div>
-        <div class="alert alert-info">
-            Username: RoshiniVarada<br />
-            Password: test1<br /> Role: admin
-        </div>
           <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
             <div class="form-group">
@@ -43,4 +57,7 @@
       </div>
     </div>
     </div>
+
+
+    
     

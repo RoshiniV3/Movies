@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
     submitted = false;
     returnUrl: string;
     error = '';
+    showdata=true;
 
     constructor(
         private formBuilder: FormBuilder,

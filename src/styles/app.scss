@@ -3,6 +3,7 @@
 @import "utils";
 @import "responsive";
 
+@import url(https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css);
 @media print {
     .breadcrumb {
         display: none !important;
@@ -12,6 +13,16 @@
 
 
 .big-banner{
+
+  .icon-remove::before{
+    text-decoration: inherit;
+    display: inline-block;
+    padding-top: 0.8em;
+    padding-right: 0.2em;
+    font-size: 1.2em;
+  }
+
+
 .alert-info{
   color: #0c5460;
     background-color: #d1ecf1;
@@ -27,7 +38,7 @@ button{
 }
   input{
     border-radius: 2em;
-    height: 4em;
+    font-size:1em;
 
   }
     background-image: url("src/assets/1241.png");
@@ -49,15 +60,80 @@ button{
       left: 50%;
       margin-left: -512px;   /* 50% */
     }
-  .alert-info{
-    width: 16em;
-  }
+
   input{
     border-radius: 2em;
-    width: 25em;
+ 
     
 
   }
   
   }
+
+
+  
+
+.alert .inner {
+  display: block;
+  padding: 6px;
+  margin: 6px;
+  border-radius: 3px;
+  border: 1px solid rgb(180,180,180);
+  background-color: rgb(212,212,212);
+  text-align:center;
+  font-weight: bold;
 }
+
+.alert .close {
+  float: right;
+  margin: 3px 12px 0px 0px;
+  cursor: pointer;
+}
+
+.alert .inner,.alert .close {
+  color: rgb(88,88,88);
+}
+
+
+
+
+
+.alert.info .inner {
+  border: 1px solid rgb(188,232,241);
+  background-color: rgb(217,237,247);
+}
+
+.alert.info .inner,.alert.info .close {
+  color: #1c1e1f;
+}
+
+
+
+
+
+@keyframes dismiss {
+  0% {
+    opacity: 1;
+  }
+  90%, 100% {
+    opacity: 0;
+    font-size: 0.1px;
+    transform: scale(0);
+  }
+}
+
+@keyframes hide {
+  100% {
+    height: 0px;
+    width: 0px;
+    overflow: hidden;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+  }
+}
+}
+
+
+
+

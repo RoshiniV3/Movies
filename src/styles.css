@@ -87,16 +87,15 @@ h3 {
 }
 
 .authBlock {
-  margin: 0 auto;
+  margin: 0 28em;
   max-width: 400px;
-  padding: 30px 40px 10px;
+  padding: 3em;
   overflow: hidden;
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, .04);
   background-color: #002045;
   border: none;
   color: white;
   border-radius: 3em;
-  padding-bottom:1em;
 }
 .authBlock h3{
   padding-bottom: 0.5em;
@@ -164,18 +163,16 @@ input:-moz-placeholder {
 
   .displayTable .btn {
 
-    
-width: 16em;
-border: none;
-font-size: 16px;
-font-weight: 600;
-padding: 15px 3em;
-background: #36526e;
-color: #ffffff;
-cursor: pointer;
-outline: none;
-margin-top: 1em;
-padding-right: 3em;
+    border: none;
+    font-size: 0.8em;
+    font-weight: 600;
+    padding: 15px 3em;
+    background: #36526e;
+    color: #ffffff;
+    cursor: pointer;
+    outline: none;
+    /* margin-top: 1em; */
+    padding-right: 3em;
   }
 }
 
@@ -688,7 +685,17 @@ body .table thead th {
   }
 
   .authBlock {
-    box-shadow: none
+    box-shadow: none;
+    margin: 0 auto;
+    /* max-width: 400px; */
+    padding: 3em;
+    overflow: hidden;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, .04);
+    background-color: #002045;
+    border: none;
+    color: white;
+    max-width: 100%;
+    border-radius:0em;
   }
 
   .px-logo {
